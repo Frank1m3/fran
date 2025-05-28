@@ -3,11 +3,10 @@ import psycopg2
 import os
 from dotenv import load_dotenv
 
-load_dotenv()  # 👈 Esto carga automáticamente las variables desde tu archivo .env
+load_dotenv()  # carga las variables del .env
 
 app = Flask(__name__)
 PORT = int(os.getenv("PORT", 3000))
-
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 try:
