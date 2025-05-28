@@ -1,12 +1,14 @@
 from flask import Flask, jsonify
 import psycopg2
 import os
+from dotenv import load_dotenv
+
+load_dotenv()  # 👈 Esto carga automáticamente las variables desde tu archivo .env
 
 app = Flask(__name__)
-PORT = int(os.environ.get("PORT", 3000))
+PORT = int(os.getenv("PORT", 3000))
 
-# Conexión a PostgreSQL usando DATABASE_URL
-DATABASE_URL = os.environ.get("DATABASE_URL")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 try:
     conn = psycopg2.connect(DATABASE_URL)
